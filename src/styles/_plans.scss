@@ -1,0 +1,46 @@
+.plans {
+    padding: 2.5vw;
+    padding: 0 20px 100px 20px;
+    font-weight: 700;
+
+    @media (max-width: 768px) {
+        padding-bottom: 20px;
+    }
+
+    h2 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        @media (max-width: 768px) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 350px 400px; /* Primeira coluna maior */
+    gap: 100px; /* Espaçamento entre as colunas */
+}
+
+.plans__list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plans__list__item {
+    margin-bottom: 10px;
+}
+
+.plans__list img {
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .plans-grid {
+        grid-template-columns: 1fr; /* Empilha as listas em telas menores */
+    }
+}

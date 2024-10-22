@@ -1,0 +1,164 @@
+@use 'variaveis';
+@use 'hero';
+@use 'plans';
+@use 'footer';
+@use 'header';
+@use 'available-devices';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+    list-style: none;
+}
+
+$corDeFundo: #040714;
+$corTextoPrincipal: silver;
+$corTextoSecundario: #f9f9f9;
+
+body {
+    background-color: $corDeFundo;
+    font-family: Avenir, sans-serif;
+
+}
+
+@mixin text($fontSize: 16px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: $corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px) {
+    @include text($fontSize);
+    color: $corTextoSecundario;
+}
+
+.text-big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.link-text {
+    @include text(18px);
+    color: $corTextoSecundario;
+    text-decoration: underline;
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.title--small {
+    @include title(28px);
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
+}
+
+.button--secondary {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: variaveis.$corPrimeiroBotao;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 14px;
+    color: #02172A;
+    letter-spacing: 1px;
+    margin-right: 8px;
+
+        @media (max-width: 768px) {
+            font-size: 15px;
+            padding: 9px 12px;
+            height: 40px;
+            letter-spacing: 0;
+        }
+
+    &:hover {
+        background-color: scale-color(variaveis.$corPrimeiroBotao, $lightness: -10%);
+    }
+}
+
+.button--dark {
+        background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.5);
+        color: #f9f9f9;
+        padding: 8px 14px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 17px;
+        border-color: variaveis.$corTextoSecundario 4px;
+        border: solid 1px #f9f9f9;
+        letter-spacing: 1px;
+        margin-left: 8px;
+
+        @media (max-width: 768px) { 
+                width: auto;
+                font-size: 14px; /* Reduza o tamanho do texto em telas menores */
+                padding: 8px 16px;
+            }
+
+        &:hover {
+            background-color: variaveis.$corTextoSecundario;
+            color: $corDeFundo;
+        }
+}
+
+
+h1 {
+
+    button {
+        font-style: Avenir, sans-serif;
+        font-weight: 700;
+        margin: 15px 10px 5px 10px;
+        border-radius: 4px;
+        color: rgb(192, 192, 192);
+        background-color: transparent;
+        font-size: 20px;
+        border: none;
+        letter-spacing: 1px;
+    }
+}
+
+.hr-custom {
+    width: 97%;  // Ajuste a largura desejada
+    border: 1px solid #ccc;  // Define o estilo da borda (cor e espessura)
+    margin: 20px auto;  // Centraliza o <hr> na página e adiciona espaçamento
+}
+
+
+

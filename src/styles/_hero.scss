@@ -1,0 +1,128 @@
+@use 'variaveis';
+
+.hero {
+    padding: 5.6vw;
+    min-height: 80vh;
+    background-image: url(../images/piratasnet/Logofundobranc.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+
+    // Overlay escuro
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    // Sombreamento no final da seção
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px; // Altura do sombreamento
+        background: linear-gradient(to bottom, rgba(4, 7, 20, 0) 20%, rgba(4, 7, 20, 1) 80%);
+        z-index: 1;
+    }
+
+    .hero__content {
+        position: relative;
+        z-index: 2;
+        /* Fica acima do sombreamento e overlay */
+        margin-top: 80px;
+
+        @media (max-width: 768px) {
+            margin-top: 30px;
+        }
+
+        &__branding {
+            img {
+                margin-top: 100px;
+                max-width: 25%;
+                /* Ajuste o valor para o tamanho desejado */
+                height: auto;
+                /* Mantém a proporção da imagem */
+
+                @media(max-width: 768px) {
+
+                    display: flex;
+                    justify-content: center; // Centraliza horizontalmente
+                    align-items: center; // Centraliza verticalmente (se necessário)
+                    max-width: 60%;
+                    margin: 0 auto; // Centraliza a imagem horizontalmente
+
+
+                }
+            }
+        }
+    }
+
+}
+
+
+.informativos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: rgb(192, 192, 192);
+    font-size: 12px;
+
+    .textOne,
+    .textTwo {
+        display: flex;
+        align-items: center;
+    }
+
+    .textTwo {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    .item1,
+    .item2,
+    .item3 {
+        height: 20px;
+        width: auto;
+        border-radius: 5px;
+    }
+}
+
+
+.botaOne {
+    background-color: variaveis.$corPrimeiroBotao;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 30px auto; // O 'auto' em margin centraliza o botão horizontalmente
+    letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+        font-size: 15px;
+        padding: 9px 12px;
+        height: 40px;
+        letter-spacing: 0;
+    }
+
+    &:hover {
+        background-color: scale-color(variaveis.$corPrimeiroBotao, $lightness: -10%);
+    }
+}
+
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: variaveis.$corTextoSecundario;
+}
