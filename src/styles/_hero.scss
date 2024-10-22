@@ -113,6 +113,10 @@
         padding: 9px 12px;
         height: 40px;
         letter-spacing: 0;
+        background-color: variaveis.$corPrimeiroBotao;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
     }
 
     &:hover {
